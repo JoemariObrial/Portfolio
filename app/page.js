@@ -161,6 +161,18 @@ export default function Page() {
                   tech: "Flutter, Mysql, PHP",
                   image: "/assets/images/project.jpg",
                 },
+                {
+                  title: "Centrio Ayala POS Web App",
+                  desc: "A point of sale system designed for Centrio Ayala. It provides a seamless and efficient way to manage sales.",
+                  tech: "PHP, JavaScript, MySQL",
+                  image: "/assets/images/ayalapos.png",
+                },
+                {
+                  title: "Spider Supplier Web App",
+                  desc: "A point of sale system designed for Centrio Ayala. It provides a seamless and efficient way to manage sales.",
+                  tech: "PHP, JavaScript, MySQL",
+                  image: "/assets/images/spidesupply.png",
+                },
               ].map((project, index) => (
                 <Card
                   key={index}
