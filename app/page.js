@@ -99,15 +99,31 @@ export default function Page() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="mt-4 flex justify-center space-x-4"
           >
-            <Button variant="outline" size="icon">
-              <Github className="h-5 w-5" />
-              <span className="sr-only">GitHub</span>
-            </Button>
-            <Button variant="outline" size="icon">
-              <Linkedin className="h-5 w-5" />
-              <span className="sr-only">LinkedIn</span>
-            </Button>
-            <Button variant="outline" size="icon">
+            <a
+              href="https://github.com/JoemariObrial"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button variant="outline" size="icon">
+                <Github className="h-5 w-5" />
+                <span className="sr-only">GitHub</span>
+              </Button>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/joemari-obrial-53907b329/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button variant="outline" size="icon">
+                <Linkedin className="h-5 w-5" />
+                <span className="sr-only">LinkedIn</span>
+              </Button>
+            </a>
+            <Button
+              variant="outline"
+              size="icon"
+              title="joemariobrial54@gmail.com"
+            >
               <Mail className="h-5 w-5" />
               <span className="sr-only">Email</span>
             </Button>
