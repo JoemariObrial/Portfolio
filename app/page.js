@@ -24,7 +24,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
-export default function Page() {
+export default function Component() {
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
@@ -34,6 +34,80 @@ export default function Page() {
       document.documentElement.classList.remove("dark");
     }
   }, [darkMode]);
+
+  const skills = [
+    {
+      name: "JavaScript",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+    },
+    {
+      name: "React",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+    },
+    {
+      name: "Node.js",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+    },
+    {
+      name: "Python",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+    },
+    {
+      name: "SQL",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+    },
+    {
+      name: "Git",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+    },
+    {
+      name: "PHP",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+    },
+    {
+      name: "MySQL",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+    },
+    {
+      name: "C#",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+    },
+    {
+      name: "C++",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
+    },
+    {
+      name: "TypeScript",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+    },
+    {
+      name: "HTML",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+    },
+    {
+      name: "CSS",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+    },
+    {
+      name: "Tailwind CSS",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg",
+    },
+    {
+      name: "Bootstrap",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg",
+    },
+    {
+      name: "Next.js",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+    },
+    {
+      name: "Flutter",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
+    },
+  ];
+
+  const topRowSkills = skills.slice(0, 8);
+  const bottomRowSkills = skills.slice(8);
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
@@ -62,7 +136,6 @@ export default function Page() {
         </div>
       </header>
       <main className="container mx-auto px-4 py-8">
-        {/* Hero Section */}
         <section className="mb-16 text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
@@ -130,7 +203,6 @@ export default function Page() {
           </motion.div>
         </section>
 
-        {/* Main Content Tabs */}
         <Tabs defaultValue="about" className="mb-16">
           <TabsList className="grid w-full grid-cols-4 mb-8">
             <TabsTrigger value="about">About</TabsTrigger>
@@ -231,33 +303,53 @@ export default function Page() {
                 <CardTitle>Skills</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {[
-                    "JavaScript",
-                    "React",
-                    "Node.js",
-                    "Python",
-                    "SQL",
-                    "Git",
-                    "PHP",
-                    "MySQL",
-                    "C#",
-                    "C++",
-                    "TypeScript",
-                    "HTML",
-                    "CSS",
-                    "Tailwind CSS",
-                    "Bootstrap",
-                    "Next.js",
-                    "Flutter",
-                  ].map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+                <div className="space-y-4">
+                  <div className="overflow-hidden">
+                    <div className="flex animate-marquee hover:pause">
+                      {[...topRowSkills, ...topRowSkills].map(
+                        (skill, index) => (
+                          <div
+                            key={`top-${skill.name}-${index}`}
+                            className="flex flex-col items-center justify-center p-4 mx-4"
+                          >
+                            <Image
+                              src={skill.logo}
+                              alt={skill.name}
+                              width={48}
+                              height={48}
+                              className="mb-2"
+                            />
+                            <span className="text-xs text-center">
+                              {skill.name}
+                            </span>
+                          </div>
+                        )
+                      )}
+                    </div>
+                  </div>
+                  <div className="overflow-hidden">
+                    <div className="flex animate-marquee-reverse hover:pause">
+                      {[...bottomRowSkills, ...bottomRowSkills].map(
+                        (skill, index) => (
+                          <div
+                            key={`bottom-${skill.name}-${index}`}
+                            className="flex flex-col items-center justify-center p-4 mx-4"
+                          >
+                            <Image
+                              src={skill.logo}
+                              alt={skill.name}
+                              width={48}
+                              height={48}
+                              className="mb-2"
+                            />
+                            <span className="text-xs text-center">
+                              {skill.name}
+                            </span>
+                          </div>
+                        )
+                      )}
+                    </div>
+                  </div>
                 </div>
               </CardContent>
             </Card>
@@ -286,9 +378,36 @@ export default function Page() {
       </main>
       <footer className="bg-gray-200 dark:bg-gray-800 py-4 mt-16">
         <div className="container mx-auto px-4 text-center text-gray-600 dark:text-gray-400">
-          © 2024 Joemari Obrial. All rights reserved.
+          © 2024 Joem ari Obrial. All rights reserved.
         </div>
       </footer>
+      <style jsx global>{`
+        @keyframes marquee {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        @keyframes marquee-reverse {
+          0% {
+            transform: translateX(-50%);
+          }
+          100% {
+            transform: translateX(0);
+          }
+        }
+        .animate-marquee {
+          animation: marquee 5s linear infinite;
+        }
+        .animate-marquee-reverse {
+          animation: marquee-reverse 5s linear infinite;
+        }
+        .hover\:pause:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
     </div>
   );
 }
