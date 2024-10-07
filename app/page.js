@@ -185,7 +185,7 @@ export default function Page() {
                 },
                 {
                   title: "Spider Supplier Web App",
-                  desc: "A point of sale system designed for Centrio Ayala. It provides a seamless and efficient way to manage sales.",
+                  desc: "The Spider Supplier Web App is a point-of-sale system designed to streamline sales management by providing an efficient interface for processing transactions, tracking inventory, and generating real-time reports.",
                   tech: "PHP, JavaScript, MySQL",
                   image: "/assets/images/spidesupply.png",
                 },
