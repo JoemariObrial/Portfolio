@@ -23,6 +23,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import Marquee from "@/components/ui/marquee"; // Import your marquee component
 
 export default function Component() {
   const [darkMode, setDarkMode] = useState(false);
@@ -304,52 +305,44 @@ export default function Component() {
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  <div className="overflow-hidden">
-                    <div className="flex animate-marquee hover:pause">
-                      {[...topRowSkills, ...topRowSkills].map(
-                        (skill, index) => (
-                          <div
-                            key={`top-${skill.name}-${index}`}
-                            className="flex flex-col items-center justify-center p-4 mx-4"
-                          >
-                            <Image
-                              src={skill.logo}
-                              alt={skill.name}
-                              width={48}
-                              height={48}
-                              className="mb-2"
-                            />
-                            <span className="text-xs text-center">
-                              {skill.name}
-                            </span>
-                          </div>
-                        )
-                      )}
-                    </div>
-                  </div>
-                  <div className="overflow-hidden">
-                    <div className="flex animate-marquee-reverse hover:pause">
-                      {[...bottomRowSkills, ...bottomRowSkills].map(
-                        (skill, index) => (
-                          <div
-                            key={`bottom-${skill.name}-${index}`}
-                            className="flex flex-col items-center justify-center p-4 mx-4"
-                          >
-                            <Image
-                              src={skill.logo}
-                              alt={skill.name}
-                              width={48}
-                              height={48}
-                              className="mb-2"
-                            />
-                            <span className="text-xs text-center">
-                              {skill.name}
-                            </span>
-                          </div>
-                        )
-                      )}
-                    </div>
-                  </div>
+                  <Marquee duration="20s">
+                    {topRowSkills.map((skill, index) => (
+                      <div
+                        key={index}
+                        className="flex flex-col items-center justify-center p-4 mx-4"
+                      >
+                        <Image
+                          src={skill.logo}
+                          alt={skill.name}
+                          width={48}
+                          height={48}
+                          className="mb-2"
+                        />
+                        <span className="text-xs text-center">
+                          {skill.name}
+                        </span>
+                      </div>
+                    ))}
+                  </Marquee>
+                  <Marquee reverse duration="20s">
+                    {bottomRowSkills.map((skill, index) => (
+                      <div
+                        key={index}
+                        className="flex flex-col items-center justify-center p-4 mx-4"
+                      >
+                        <Image
+                          src={skill.logo}
+                          alt={skill.name}
+                          width={48}
+                          height={48}
+                          className="mb-2"
+                        />
+                        <span className="text-xs text-center">
+                          {skill.name}
+                        </span>
+                      </div>
+                    ))}
+                  </Marquee>
                 </div>
               </CardContent>
             </Card>
@@ -378,7 +371,7 @@ export default function Component() {
       </main>
       <footer className="bg-gray-200 dark:bg-gray-800 py-4 mt-16">
         <div className="container mx-auto px-4 text-center text-gray-600 dark:text-gray-400">
-          © 2024 Joem ari Obrial. All rights reserved.
+          © 2024 Joemari Obrial. All rights reserved.
         </div>
       </footer>
       <style jsx global>{`
@@ -403,9 +396,6 @@ export default function Component() {
         }
         .animate-marquee-reverse {
           animation: marquee-reverse 5s linear infinite;
-        }
-        .hover\:pause:hover {
-          animation-play-state: paused;
         }
       `}</style>
     </div>
